@@ -1,0 +1,58 @@
+#--------------------------------------------------------------------------
+# Oh My Zsh
+#--------------------------------------------------------------------------
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="yyyy-mm-dd"
+VI_MODE_SET_CURSOR=true
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+
+plugins=(
+    npm
+    vi-mode
+    ssh-agent
+    zsh-z
+    zsh-autosuggestions
+    docker
+    docker-compose
+    git
+    tmux
+)
+
+source $ZSH/oh-my-zsh.sh
+
+#--------------------------------------------------------------------------
+# Aliases
+#--------------------------------------------------------------------------
+
+alias vim="nvim"
+alias copy="xclip -selection clipboard"
+alias paste="xclip -o -selection clipboard"
+
+# Git
+alias g="git"
+alias gs="git s"
+alias nah="git reset --hard;git clean -df"
+alias co="git checkout"
+alias pull="git pull"
+alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
+
+# Docker
+alias d="docker"
+alias dc="docker compose"
+
+# NPM
+alias serve="npm run serve"
+alias install="npm run install"
+alias testu="npm run test:unit"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
+    ~/code/eriklennstrom/dotfiles/scripts/login.sh
+fi
