@@ -33,6 +33,7 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.clipboard = 'unnamedplus' -- Use Linux system clipboard
 vim.opt.confirm = true -- ask for confirmation instead of erroring when closing unsaved files
+vim.opt.signcolumn = 'yes:2'
 vim.opt.undofile = true
 vim.opt.backup = true
 vim.opt.backupdir:remove('.')
