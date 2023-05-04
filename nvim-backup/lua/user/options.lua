@@ -1,4 +1,4 @@
--- vim.opt.expandtab = true
+vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -11,6 +11,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.wildmode = 'longest:full,full' -- complete the longest common match, and allow tabbing the result to fully complete them.
+vim.opt.completeopt = 'menuone,longest,preview'
 
 vim.opt.title = true
 vim.opt.mouse = 'a'

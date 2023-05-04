@@ -4,16 +4,14 @@ require('nvim-tree').setup({
   },
   view = {
     side = 'right',
-    width = 60
+    width = 70
   },
   renderer = {
     group_empty = true,
     icons = {
       show = {
-        folder_arrow = true,
-        folder = false
-      },
-      git_placement = 'after',
+        folder_arrow = false
+      }
     },
     indent_markers = {
       enable = true

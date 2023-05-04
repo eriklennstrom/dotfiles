@@ -21,27 +21,27 @@ require('packer').init({
 })
 
 local use = require('packer').use
-use({
-  "neanias/everforest-nvim",
-  -- Optional; default configuration will be used if setup isn't called.
-  config = function()
-    require("everforest").setup()
-    vim.cmd([[colorscheme everforest]])
-        vim.api.nvim_set_hl(0, 'FloatBorder', {
-          fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-          bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background
-        })
-        vim.api.nvim_set_hl(0, 'CursorLineBg', {
-          fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-          bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background
-        })
-        vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E'})
-        vim.api.nvim_set_hl(0, 'StatusLineNonText', {
-          fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
-          bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
-        })
 
-        vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
+-- One Dark Theme
+use({
+  'jessarcher/onedark.nvim',
+  config = function()
+    vim.cmd('colorscheme onedark')
+    vim.api.nvim_set_hl(0, 'FloatBorder', {
+      fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
+      bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background
+    })
+    vim.api.nvim_set_hl(0, 'CursorLineBg', {
+      fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
+      bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background
+    })
+    vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E'})
+    vim.api.nvim_set_hl(0, 'StatusLineNonText', {
+      fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
+      bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
+    })
+
+    vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
   end,
 })
 -- Fuzzy finder
@@ -88,9 +88,9 @@ use({
     -- Instead of this running every time we open a file, just run it once when Vim starts.
     vim.g.rooter_manual_only = 1
   end,
-  -- config = function()
-  --   vim.cmd('Rooter')
-  -- end
+  config = function()
+    vim.cmd('Rooter')
+  end,
 })
 
 -- Text objects for HTML attributes.
@@ -162,9 +162,29 @@ use({
   end,
   requires = {
     'JoosepAlviste/nvim-ts-context-commentstring',
+    'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
     require('user/plugins/treesitter')
+  end,
+})
+
+-- Completion
+use({
+  'hrsh7th/nvim-cmp',
+  requires = {
+    'L3MON4D3/LuaSnip',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-nvim-lua',
+    'jessarcher/cmp-path',
+    'onsails/lspkind-nvim',
+    'saadparwaiz1/cmp_luasnip',
+  },
+  config = function()
+    require('user/plugins/cmp')
   end,
 })
 
@@ -174,41 +194,35 @@ use({
   requires = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
+    'b0o/schemastore.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
+    'jayp0521/mason-null-ls.nvim'
   },
   config = function()
     require('user/plugins/lspconfig')
   end
 })
 
--- Autocompletion
-use {
-  "hrsh7th/nvim-cmp",
-  requires = {
-    "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
-    'hrsh7th/cmp-nvim-lua', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip',
-    'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
-    'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
-  },
-  config = function()
-    require('user/plugins/completion')
-  end
-}
+-- Git commands
+use({
+  'tpope/vim-fugitive',
+  requires = 'tpope/vim-rhubarb'
+})
 
--- Vim Wiki
-use {
-  'vimwiki/vimwiki',
+-- Floating term
+use({
+  'voldikss/vim-floaterm',
   config = function()
-    vim.g.vimwiki_list = {
-      {
-        path = '/home/e18m/code/eriklennstrom/wiki',
-        syntax = 'markdown',
-        ext = '.md',
-      }
-    }
+    vim.g.floaterm_width = 0.8
+    vim.g.floaterm_height = 0.8
+    vim.keymap.set('n', '<F1>', ':FloatermToggle<CR>')
+    vim.keymap.set('t', '<F1>', '<C-\\><C-n>:FloatermToggle<CR>')
+    vim.cmd([[
+      highlight link Floaterm CursorLine
+      highlight link FloatermBorder CursorLineBg
+    ]])
   end
-}
-
--- Installation
+})
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
 if packer_bootstrap then

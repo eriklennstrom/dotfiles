@@ -1,22 +1,15 @@
 require('nvim-treesitter.configs').setup({
-  ensure_installed = 'all',
+  ensure_installed = { "c", "lua", "vim", "help" ,"vue", "typescript" },
+
+  auto_install = true,
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = true
+    disable = { "c", "rust" },
+    additional_vim_regex_highlighting = false,
   },
   context_commentstring = {
     enable = true
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ['if'] = '@function.inner',
-        ['af'] = '@function.outer',
-        ['ia'] = '@parameter.inner',
-        ['aa'] = '@parameter.outer'
-      }
-    }
   }
 })
