@@ -22,11 +22,11 @@ require('packer').init({
 
 local use = require('packer').use
 use({
-  "neanias/everforest-nvim",
+  'jessarcher/onedark.nvim',
+  -- 'neanias/everforest-nvim', 
   -- Optional; default configuration will be used if setup isn't called.
   config = function()
-    require("everforest").setup()
-    vim.cmd([[colorscheme everforest]])
+    vim.cmd('colorscheme onedark')
         vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background
@@ -167,7 +167,6 @@ use({
     require('user/plugins/treesitter')
   end,
 })
-
 -- Language Server Protocol
 use({
   'neovim/nvim-lspconfig',

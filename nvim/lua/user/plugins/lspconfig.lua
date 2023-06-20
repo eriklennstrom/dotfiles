@@ -1,7 +1,21 @@
 -- Setup Mason to automatically install LSP servers
 require('mason').setup()
 require('mason-lspconfig').setup({ automatic_installation = true })
-
+util = require "lspconfig/util"
+-- Go lang
+require'lspconfig'.gopls.setup {
+  cmd = {"gopls", "serve"},
+  filetypes = {"go", "gomod"},
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
 -- JS/TS/VUE/REACT
  require'lspconfig'.volar.setup{
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
