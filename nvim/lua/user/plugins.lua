@@ -22,26 +22,14 @@ require('packer').init({
 
 local use = require('packer').use
 use({
-  'jessarcher/onedark.nvim',
-  -- 'neanias/everforest-nvim', 
+  "neanias/everforest-nvim",
   -- Optional; default configuration will be used if setup isn't called.
   config = function()
-    vim.cmd('colorscheme onedark')
-        vim.api.nvim_set_hl(0, 'FloatBorder', {
-          fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-          bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background
-        })
-        vim.api.nvim_set_hl(0, 'CursorLineBg', {
-          fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-          bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background
-        })
-        vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E'})
-        vim.api.nvim_set_hl(0, 'StatusLineNonText', {
-          fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
-          bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
-        })
-
-        vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
+    require("everforest").setup({
+      background = "hard",
+      transparent_background_level = 1
+    })
+    require("everforest").load()
   end,
 })
 -- Fuzzy finder
@@ -200,7 +188,6 @@ use {
     vim.g.vimwiki_list = {
       {
         path = '/home/e18m/code/eriklennstrom/wiki',
-        syntax = 'markdown',
         ext = '.md',
       }
     }
