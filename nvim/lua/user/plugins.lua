@@ -27,7 +27,7 @@ use({
   config = function()
     require("everforest").setup({
       background = "hard",
-      transparent_background_level = 1
+      transparent_background_level = o
     })
     require("everforest").load()
   end,

@@ -23,8 +23,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
+# export PATH="$HOME/.tmuxifier/bin:$PATH"
+# eval "$(tmuxifier init -)"
 #--------------------------------------------------------------------------
 # Aliases
 #--------------------------------------------------------------------------
@@ -55,9 +55,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+eval $(/home/linuxbrew/.linuxbrew/Homebrew/bin/brew shellenv)
+
 if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
     ~/code/eriklennstrom/dotfiles/scripts/login.sh
 fi
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
-# export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
