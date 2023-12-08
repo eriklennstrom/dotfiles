@@ -27,11 +27,14 @@ use({
   config = function()
     require("everforest").setup({
       background = "hard",
-      transparent_background_level = o
+      transparent_background_level = 1
     })
     require("everforest").load()
   end,
 })
+
+use('fatih/vim-go')
+
 -- Fuzzy finder
 use({
   'nvim-telescope/telescope.nvim',
@@ -187,12 +190,15 @@ use {
   config = function()
     vim.g.vimwiki_list = {
       {
-        path = '/home/e18m/code/eriklennstrom/wiki',
+        path = '/home/e18m/code/eriklennstrom/notes',
         ext = '.md',
       }
     }
   end
 }
+
+-- Vim Wiki
+use('michal-h21/vimwiki-sync')
 
 -- Installation
 -- Automatically set up your configuration after cloning packer.nvim
