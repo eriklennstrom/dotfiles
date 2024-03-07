@@ -68,3 +68,4 @@ fi
 
 export PATH=$PATH:/home/e18m/.spicetify
 export PATH=$PATH:/usr/local/go/bin:/home/e18m/go/bin
+export PATH=$PATH:/home/e18m/.local/bin
