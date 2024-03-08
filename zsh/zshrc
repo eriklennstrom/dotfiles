@@ -33,6 +33,9 @@ alias vim="nvim"
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
 
+# PHP
+alias a="php artisan"
+
 # Git
 alias g="git"
 alias gs="git s"
@@ -69,3 +72,10 @@ fi
 export PATH=$PATH:/home/e18m/.spicetify
 export PATH=$PATH:/usr/local/go/bin:/home/e18m/go/bin
 export PATH=$PATH:/home/e18m/.local/bin
+
+# bun completions
+[ -s "/home/e18m/.bun/_bun" ] && source "/home/e18m/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
