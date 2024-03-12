@@ -1,0 +1,12 @@
+regolith.sway.unsupported_gpu: true
+wm.bar.position: top
+gtk.font_name: SauceCodeProp Nerd Font 12
+gtk.document_font_name: 'SauceCodeProp'
+!regolith.look.path: /usr/share/regolith-look/gruvbox
+regolith.look.path: /usr/share/regolith-look/gruvbox
+regolith.wallpaper.file: /home/e18m/.local/share/backgrounds/2023-10-19-08-38-04-wp5418860-neon-cities-wallpapers.jpg
+regolith.lockscreen.wallpaper.file: /home/e18m/.local/share/backgrounds/2023-10-19-08-38-04-wp5418860-neon-cities-wallpapers.jpg
+wm.workspace.01.name: 1: 1: dev
+wm.workspace.06.name: 6: 6: 
+wm.workspace.04.name: 4: 4: term
+wm.workspace.05.name: 5: 5: chat
