@@ -44,6 +44,7 @@ alias co="git checkout"
 alias pull="git pull"
 alias push="git push"
 alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
+alias lg="lazygit"
 
 # Docker
 alias d="docker"
@@ -79,3 +80,12 @@ export PATH=$PATH:/home/e18m/.local/bin
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# composer
+export PATH=~/.config/composer/vendor/bin:$PATH
+# pnpm
+export PNPM_HOME="/home/e18m/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
