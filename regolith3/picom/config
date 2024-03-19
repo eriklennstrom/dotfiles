@@ -101,9 +101,9 @@ shadow-ignore-shaped = false;
 #
 #################################
 
-inactive-opacity = 1;
-active-opacity = 1;
-frame-opacity = 1;
+inactive-opacity = .95;
+active-opacity = .95;
+frame-opacity = .95;
 inactive-opacity-override = false;
 
 # Dim inactive windows. (0.0 - 1.0)
@@ -125,7 +125,7 @@ blur: {
 
 # Exclude conditions for background blur.
 blur-background-exclude = [
-	"window_type = 'dock'",
+	# "window_type = 'dock'",
     "name = 'cavatransparent'",
 	"class_g = 'Plank'",
 	"class_g = 'slop'",

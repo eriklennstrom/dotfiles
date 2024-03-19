@@ -5,6 +5,7 @@ return {
   priority = 1000,
   config = function()
     vim.cmd.colorscheme "catppuccin"
+    transparent_background = true
   end
 }
 --require("catppuccin").setup({
