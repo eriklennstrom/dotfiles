@@ -10,3 +10,4 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamed,unnamedplus"
 vim.o.winbar = "%{%v:lua.require'utils.winbar'.eval()%}"
+-- vim.cmd.colorscheme "tokyo-night"
