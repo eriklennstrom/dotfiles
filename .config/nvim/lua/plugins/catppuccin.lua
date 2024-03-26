@@ -1,16 +1,15 @@
 return {
-  "catppuccin/nvim",
-  lazy = false,
-  name = "catppuccin",
-  priority = 1000,
-  options = {
-	transparent_background = true
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    transparent_background = true,
+    lazy = false,
+    config = function()
+      require("catppuccin").setup({
+        transparent_background = true, -- disables setting the background color.
+      })
+      vim.cmd.colorscheme "catppuccin"
+    end
   },
-  config = function()
-	vim.cmd.colorscheme "catppuccin"
-	local catppuccin = require("catppuccin")
-  end
 }
---require("catppuccin").setup({
-  -- transparent_background = true,
---})
