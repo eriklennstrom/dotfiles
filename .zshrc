@@ -67,7 +67,7 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 eval $(/home/linuxbrew/.linuxbrew/Homebrew/bin/brew shellenv)
 
 if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
-    ~/code/eriklennstrom/dotfiles/scripts/login.sh
+    ~/.config/scripts/login.sh
 fi
 
 export PATH=$PATH:/home/e18m/.spicetify
