@@ -28,10 +28,10 @@ set_from_resource $alt  wm.alt Mod1
 # These are the labels which define each workspace.
 ###############################################################################
 
-set_from_resource $ws1  wm.workspace.01.name "1: Dev"
-set_from_resource $ws2  wm.workspace.02.name "2: Music"
-set_from_resource $ws3  wm.workspace.03.name "3: Terminal"
-set_from_resource $ws4  wm.workspace.04.name "4: Chat"
+set_from_resource $ws1  wm.workspace.01.name "1"
+set_from_resource $ws2  wm.workspace.02.name "2"
+set_from_resource $ws3  wm.workspace.03.name "3"
+set_from_resource $ws4  wm.workspace.04.name "4"
 set_from_resource $ws5  wm.workspace.05.name "5"
 set_from_resource $ws6  wm.workspace.06.name "6"
 set_from_resource $ws7  wm.workspace.07.name "7"
