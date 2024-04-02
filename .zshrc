@@ -82,6 +82,9 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # composer
 export PATH=~/.config/composer/vendor/bin:$PATH
+# Tmuxifier
+export PATH=$HOME/.tmuxifier/bin:$PATH
+eval "$(tmuxifier init -)"
 # pnpm
 export PNPM_HOME="/home/e18m/.local/share/pnpm"
 case ":$PATH:" in
