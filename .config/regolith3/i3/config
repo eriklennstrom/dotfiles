@@ -130,11 +130,10 @@ font pango:$wm.font
 ###############################################################################
 # WM Config Partials
 ###############################################################################
-
+#
 # Include common partials
 include /usr/share/regolith/common/config.d/*
-
-# Include any regolith i3 partials
+# # Include any regolith i3 partials
 include /usr/share/regolith/i3/config.d/*
 
 # Include any partials common between i3 and sway sessions
@@ -145,3 +144,4 @@ include $HOME/.config/regolith3/i3/config.d/*
 
 workspace 3 output HDMI-0
 workspace 4 output HDMI-0
+exec_always --no-startup-id $HOME/.config/scripts/launch_polybar.sh 

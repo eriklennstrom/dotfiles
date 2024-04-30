@@ -1,4 +1,3 @@
-regolith.sway.unsupported_gpu: true
 wm.bar.position: top
 gtk.font_name: SauceCodeProp Nerd Font 12
 gtk.document_font_name: 'SauceCodeProp'
@@ -9,13 +8,15 @@ regolith.wallpaper.file: /home/e18m/.local/share/backgrounds/2023-10-19-08-38-04
 regolith.lockscreen.wallpaper.file: /home/e18m/.local/share/backgrounds/2023-10-19-08-38-04-wp5418860-neon-cities-wallpapers.jpg
 wm.window.border.size: 0
 wm.gaps.inner.size: 10
-wm.workspace.01.name: 1: dev
-wm.workspace.02.name: 2: term
-wm.workspace.03.name: 3: term
-wm.workspace.04.name: 4: chat
-wm.workspace.05.name: 5: spot
-wm.workspace.06.name: 6: 
-wm.workspace.07.name: 5:
 gnome.gtk.theme:	Adwaita
 !regolith.look.path: /usr/share/regolith-look/gruvbox
 regolith.look.path: /usr/share/regolith-look/nord
+wm.workspace.01.name: 1
+wm.workspace.02.name: 2
+wm.workspace.03.name: 3
+wm.workspace.04.name: 4
+wm.workspace.05.name: 5
+wm.workspace.06.name: 6
+wm.workspace.07.name: 7
+wm.workspace.08.name: 8
+wm.workspace.09.name: 9
