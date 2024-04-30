@@ -1,6 +1,6 @@
 local M = {}
 
-vim.api.nvim_set_hl(0, 'WinBarPath', { bg = '#3F474C', fg = '#8B958D' })
+vim.api.nvim_set_hl(0, 'WinBarPath', { bg = '#44475a', fg = '#b8bed1' })
 vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#3F474C', fg = '#D98483' })
 
 function M.eval()
