@@ -32,6 +32,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
+alias t="tmux"
 
 # PHP
 alias a="php artisan"
@@ -54,6 +55,8 @@ alias dc="docker compose"
 alias serve="npm run serve"
 alias install="npm run install"
 alias testu="npm run test:unit"
+
+alias ls="eza --color=always --long --git --no-time --no-user -a --no-permissions --no-filesize --icons=always"
 
 #
 alias ssh="kitty +kitten ssh"
