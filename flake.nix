@@ -5,7 +5,7 @@
 # --- SYSTEM SETTINGS --- #
     systemSettings = {
       system = "x86_64-linux";
-      hostname = "e18m-ws";
+      hostname = "e18m-xps";
       profile = "work";
       timezone = "Europe/Stockholm";
       defaultLocale = "en_US.UTF-8";

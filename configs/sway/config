@@ -22,12 +22,19 @@ set $browser chromium
 #set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu rofi -show drun swaymsg exec --
 default_border pixel 2
+client.focused "#64aef8" "#ffffff" "#ffffff" "#ffffff" "#64aef8"
 gaps inner 5
 ### Output configuration
 #
+blur enable
+corner_radius 5
+layer_effects "waybar" blur enable; shadows enable; 
+layer_effects "rofi" blur enable; shadows enable; 
+exec_always ../scripts/clamshell.sh
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/e18m/Pictures/wallpapers/GivingBeach_Mac.jpg fill
 #
+for_window [app_id="btopterm"] floating enable
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -51,17 +58,21 @@ exec --no-startup-id waybar
 input * {
   xkb_layout "se"
 }
+# Notification Daemon
+exec swaync
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
 #
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+bindgesture swipe:4:right workspace prev
+bindgesture swipe:4:left workspace next 
+input "1739:52710:DLL0945:00_06CB:CDE6_Touchpad" {
+      dwt enabled
+      tap enabled
+      click_method clickfinger
+      natural_scroll enabled
+      middle_emulation enabled
+  }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -138,6 +149,23 @@ input * {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+# Lock
+      bindsym $mod+Escape exec swaylock --clock --screenshot --effect-blur 7x5 --fade-in 0.2
+      # Control volume
+      bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+      bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+      bindsym XF86AudioMute  exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
+      #XF86AudioMicMute = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+# Control media
+      bindsym XF86AudioPlay exec playerctl play-pause
+      bindsym XF86AudioPause exec playerctl play-pause
+      bindsym XF86AudioNext exec playerctl next
+      bindsym XF86AudioPrev exec playerctl previous
+# Control brightness
+      bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
+      bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+# Screenshot
+
 #
 # Layout stuff:
 #

@@ -3,6 +3,7 @@
   imports = 
     [
       ../../hosts/${systemSettings.hostname}/hardware-configuration.nix
+      ../../hosts/${systemSettings.hostname}/touchpad.nix
       ../../modules/nixos/sway.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/spotifyd.nix
@@ -17,9 +18,11 @@
   # users.defaultUserShell = pkgs.zsh;
   # programs.zsh.enable = true;
 # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+ # boot.loader.grub.enable = true;
+ # boot.loader.grub.device = "/dev/vda";
+ # boot.loader.grub.useOSProber = true;
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -45,7 +48,11 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -64,9 +71,16 @@
   };
 
 
-
-  # Networking
+    # Networking
   #networking.hostName = systemSettings.hostname; # Define your hostname.
+  networking.wireless.iwd = {
+    enable = true;
+    settings = {
+      Settings = {
+        AutoConnect = true;
+      };
+    };
+  };
   networking.hostName = "e18m-ws"; # Define your hostname.
   networking.networkmanager.enable = true; # Use networkmanager
   networking.networkmanager.wifi.backend = "iwd";
@@ -99,19 +113,24 @@
   environment.systemPackages = with pkgs; [
     zsh
     git
+    unzip
     wget
     home-manager
     nodejs_20
     php
     gcc
-    wlay
+    wlay                  #monitor manager gui
     nwg-look
-    # swayfx
- mako
-    swaylock-effects
-
+    swayfx
+    swaylock-effects      #lock
+    pulseaudio
+    overskride            #bluetooth
+    iwgtk                 #wlan gui
+    gcolor3               #colorpicker
+    brightnessctl
   ];
 
+  # programs.light.enable = true;
   # Shell
   programs.neovim = {
     enable = true;

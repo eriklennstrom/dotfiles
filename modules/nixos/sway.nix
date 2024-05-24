@@ -6,8 +6,10 @@
 
   environment.systemPackages = with pkgs;
   [
-    mako
+    # mako
     swaylock-effects
+    swaysettings
+    swaynotificationcenter
   ];
 
   services.gnome.gnome-keyring.enable = true;

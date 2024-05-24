@@ -10,7 +10,7 @@
       drun-display-format = "{name}";
       cycle = false;
     };
-    # theme = ./index.rasi;
+    theme = ./spotlight.rasi;
   };
   # xdg.configFile."rofi/index.rasi".source = ./index.rasi;
   # xdg.configFile."rofi/power.rasi".source = ./power.rasi;

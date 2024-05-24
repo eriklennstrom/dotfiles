@@ -9,17 +9,15 @@
     ../../modules/home/chromium.nix
     ../../modules/home/direnv.nix
     ../../modules/home/flameshot.nix
-    ../../modules/home/fuzzel.nix
-    ../../modules/home/fzf.nix
-    #../../modules/home/git.nix
-    ../../modules/home/kitty.nix
-    ../../modules/home/notifications.nix
+    #../../modules/home/fzf.nix
+    ../../modules/home/git.nix
+    #../../modules/home/kitty.nix
+    #../../modules/home/notifications.nix // Using sway notifications instead, in sway.nix
     ../../modules/home/rofi/default.nix
     ../../modules/home/theme.nix
     ../../modules/home/waybar.nix
-    ../../modules/home/zsh.nix
+    ../../modules/home/terminal.nix
     #../../user/cli-collection.nix
-    #../../user/git.nix
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
@@ -36,7 +34,6 @@
 
   home.packages = (with pkgs; [
     # Core
-      git
       wget
       neovim
       spotify-player

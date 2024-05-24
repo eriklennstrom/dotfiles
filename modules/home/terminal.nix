@@ -36,17 +36,37 @@ let
   };
 in
 {
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = { 
+  programs = {
+    btop = {
       enable = true;
-      theme = "robbyrussell";
+      settings = {
+        theme_background = false;
+      };
     };
-    enableCompletion = true;
-    shellAliases = myAliases;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-  };
+
+    kitty = {
+      enable = true;
+      shellIntegration.enableZshIntegration = true;
+    };
+
+    lazygit = {
+      enable = true;
+    };
+
+    fzf.enable = true;
+
+    zsh = {
+      enable = true;
+      oh-my-zsh = { 
+        enable = true;
+        theme = "robbyrussell";
+      };
+      enableCompletion = true;
+      shellAliases = myAliases;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+    };
+  };  
   home.packages = with pkgs; [
     gnugrep gnused
     nix-direnv
