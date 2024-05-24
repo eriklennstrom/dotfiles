@@ -9,6 +9,7 @@
     ../../modules/home/chromium.nix
     ../../modules/home/direnv.nix
     ../../modules/home/flameshot.nix
+    ../../modules/home/golang.nix
     #../../modules/home/fzf.nix
     ../../modules/home/git.nix
     #../../modules/home/kitty.nix

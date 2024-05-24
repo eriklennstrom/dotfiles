@@ -113,6 +113,7 @@
   environment.systemPackages = with pkgs; [
     zsh
     git
+    gnumake
     unzip
     wget
     home-manager
