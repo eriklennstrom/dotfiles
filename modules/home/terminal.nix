@@ -49,6 +49,11 @@ in
       shellIntegration.enableZshIntegration = true;
     };
 
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     lazygit = {
       enable = true;
     };
@@ -67,6 +72,9 @@ in
       syntaxHighlighting.enable = true;
     };
   };  
+  home.sessionPath = [
+    "/home/e18m/go/bin:$PATH"
+  ];
   home.packages = with pkgs; [
     gnugrep gnused
     nix-direnv

@@ -128,7 +128,9 @@
     overskride            #bluetooth
     iwgtk                 #wlan gui
     gcolor3               #colorpicker
-    brightnessctl
+    brightnessctl         #brightness controll for laptop screen
+    lazydocker
+    todoist-electron
   ];
 
   # programs.light.enable = true;

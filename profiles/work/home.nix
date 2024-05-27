@@ -12,7 +12,6 @@
     ../../modules/home/golang.nix
     #../../modules/home/fzf.nix
     ../../modules/home/git.nix
-    #../../modules/home/kitty.nix
     #../../modules/home/notifications.nix // Using sway notifications instead, in sway.nix
     ../../modules/home/rofi/default.nix
     ../../modules/home/theme.nix
