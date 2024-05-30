@@ -11,7 +11,7 @@
       ../../modules/nixos/obsidian.nix
       ../../modules/nixos/sh.nix
       ../../modules/nixos/1password.nix
-
+      #../../modules/nixos/wireguard.nix
     ];
 # Shell
   # environment.shells = with pkgs; [ zsh ];
@@ -81,7 +81,7 @@
       };
     };
   };
-  networking.hostName = "e18m-ws"; # Define your hostname.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.networkmanager.enable = true; # Use networkmanager
   networking.networkmanager.wifi.backend = "iwd";
 
@@ -120,6 +120,7 @@
     nodejs_20
     php
     gcc
+    fzf
     wlay                  #monitor manager gui
     nwg-look
     swayfx
@@ -135,20 +136,6 @@
 
   # programs.light.enable = true;
   # Shell
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-
-    configure = {
-      vam.knownPlugins = pkgs.vimPlugins;
-      vam.pluginsDictionaries = let
-        names = [
-        "fzf-vim"
-        "fxfWrapper"
-        ];
-      in map (name: {inherit name;}) names;
-    };
-  };
-  # Leave as is for compatibility purposes
+    # Leave as is for compatibility purposes
   system.stateVersion = "23.11"; # Did you read the comment?
 }
