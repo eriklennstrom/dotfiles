@@ -62,13 +62,12 @@
 
     "sway/workspaces" = {
       disable-scroll = true;
-      all-outputs = false;
-      format = "{icon}";
-      format-icons = {
-        focused = "";
-        urgent = "";
-        default = "";
-      };
+      format = "{name}";
+      # format-icons = {
+      #   focused = "";
+      #   urgent = "";
+      #   default = "";
+      # };
       # persistent_workspaces = {
       #   "1" = []; 
       #   "2" = [];
@@ -120,27 +119,30 @@
         critical = 15;
       };
       format = "{icon}";
-      format-charging = " {capacity}%";
+      format-charging = "   {capacity}%";
       format-plugged = "";
       format-alt = "{icon}  {capacity}%";
-      format-full = " {capacity}%";
+      format-full = " {capacity}%";
       format-icons = ["" "" ""];
     };
   };
   };
 
   programs.waybar.style = ''
-  @define-color widgetBG rgb (44,46,60);
+  /*@define-color widgetBG rgb (83,85,113); */
+  @define-color widgetBG transparent;
   * {
     border: none;
     border-radius: 0;
     padding: 0;
     margin: 0;
     font-family: NotoSans Nerd Font Mono;
+    text-shadow: 1px 1px 1px #000000;
   }
 
   window#waybar {
-    background: rgba(21,36,51, 0.8);
+    background: rgba(0,0,0, 0.2);
+    /* background: rgba(21,36,51, 0.8); */
     color: #ffffff;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -194,33 +196,46 @@
     border-radius: 3px;
   }
 
-  #workspaces {
-    background: @widgetBG;
-    border-radius: 3px;
-    margin: 4px 4px;
-    color: #fff;
-    font-size: 8px;
-  }
-
-  #workspaces button.active {
-    color: rgb(40,133,215);
-  }
-  
-  #workspaces button {
-    color: #fff;
-  }
-
   button:hover {
     background: none;
     box-shadow: none;
     text-shadow: none;
     color: transparent;
   }
-   #workspaces button:hover {
-    color: rgb(40,133,215);
+
+  #workspaces {
+    background: @widgetBG;
+    border-radius: 3px;
+    margin: 4px 4px;
+    color: #fff;
+    font-size: 12px;
+  }
+
+  #workspaces button {
+    border: 1px solid transparent;
+    padding-left: 7px;
+    padding-right: 7px;
+    color: #fff;
+  }
+  #workspaces button.focuse {
+    background: red;
+    color: #0077ed;
+  }
+  #workspaces button:hover {
+    border: 1px solid #0077ed;
+  }
+  #workspaces button:first-child:hover {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+   #workspaces button:last-child:hover {
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
   }
 
 
+
+  
   #language {
     margin-right: 7px;		
   }
