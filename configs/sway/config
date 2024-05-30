@@ -53,7 +53,8 @@ exec swayidle -w timeout 300 'swaylock --clock --screenshot --effect-blur 7x5 --
 #
 # Autostart
 #
-exec --no-startup-id waybar
+exec killall waybar
+exec_always --no-startup-id waybar
 ### Input configuration
 input * {
   xkb_layout "se"
@@ -228,22 +229,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
 #
-# Status Bar:
+# Monitors
 #
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-#
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-#
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
+bindsym $mod+m exec swaymsg output DP-1 mode 1920x1080@74Hz position 0 0 transform 270 ; exec swaymsg output DP-3 mode 3440x1440@00Hz position 1080 340
+bindsym $mod+n exec swaymsg output eDP-1 toggle
+# bindsym $mod+m exec swaymsg output DP-1 toggle
 
 include /etc/sway/config.d/*
