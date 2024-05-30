@@ -7,6 +7,7 @@
   
   imports = [
     ../../modules/home/chromium.nix
+    ../../modules/home/nvim.nix
     ../../modules/home/direnv.nix
     ../../modules/home/flameshot.nix
     ../../modules/home/golang.nix
@@ -35,7 +36,6 @@
   home.packages = (with pkgs; [
     # Core
       wget
-      neovim
       spotify-player
 
       vlc
