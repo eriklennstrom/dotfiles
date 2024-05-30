@@ -14,7 +14,7 @@ return {
           "volar",
           "tsserver",
           "eslint",
-          "phpactor"
+          -- "phpactor"
         },
       })
     end,
@@ -37,6 +37,12 @@ return {
             mode = "all",
           },
         },
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
         capabilites = capabilities
       })
 
