@@ -65,6 +65,19 @@ exec swaync
 # Toggle control center
 bindsym $mod+Shift+n exec swaync-client -t -sw
 #
+
+# Window fades
+# Fade in
+for_window [app_id=.*] opacity 0
+for_window [app_id=.*] exec ../scripts/fadein.sh                        
+for_window [app_id=.*] mark fade
+
+# Fade out
+# bindsym $mod+Shift+q mark quit; exec fadeout.sh
+
+# Fadefix (uncoment if necessary)
+# exec fadefix.sh
+
 bindgesture swipe:4:right workspace prev
 bindgesture swipe:4:left workspace next 
 input "1739:52710:DLL0945:00_06CB:CDE6_Touchpad" {
