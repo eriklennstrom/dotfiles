@@ -68,12 +68,12 @@ bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # Window fades
 # Fade in
-for_window [app_id=.*] opacity 0
-for_window [app_id=.*] exec ../scripts/fadein.sh                        
-for_window [app_id=.*] mark fade
+# for_window [app_id=.*] opacity 0
+# for_window [app_id=.*] exec ../scripts/fadein.sh                        
+# for_window [app_id=.*] mark fade
 
 # Fade out
-# bindsym $mod+Shift+q mark quit; exec fadeout.sh
+# bindsym $mod+Shift+q kill; exec ../scripts/fadeout.sh
 
 # Fadefix (uncoment if necessary)
 # exec fadefix.sh

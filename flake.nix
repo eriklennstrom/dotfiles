@@ -8,7 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
-  outputs = { self, nixpkgs, catppuccin, home-manager, ... }:
+  outputs = { self, nixpkgs, catppuccin, home-manager, spicetify-nix, ... }:
     let
 # --- SYSTEM SETTINGS --- #
     systemSettings = {
