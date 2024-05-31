@@ -15,7 +15,7 @@
     #];
 
     modules-left = [ "sway/workspaces" "sway/mode" ];
-    modules-center = [ "custom/media" ];
+    modules-center = [ "custom/spotify" ];
     modules-right = [ "pulseaudio" "network" "memory" "cpu" "battery" "clock" ];
 
     media = {

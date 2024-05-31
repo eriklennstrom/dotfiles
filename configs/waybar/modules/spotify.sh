@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 class=$(playerctl metadata --player=spotify_player --format '{{lc(status)}}')
 icon=""
 

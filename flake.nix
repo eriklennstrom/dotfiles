@@ -1,6 +1,14 @@
 {
   description = "e18m flake config";
-  outputs = { self, nixpkgs, home-manager, ... }:
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    catppuccin.url = "github:catppuccin/nix";
+    nixos-hardware.url = "github:NixOs/nixos-hardware/master";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
+  };
+  outputs = { self, nixpkgs, catppuccin, home-manager, ... }:
     let
 # --- SYSTEM SETTINGS --- #
     systemSettings = {
@@ -26,12 +34,7 @@
     fontPkg = pkgs.fira-code-nerdfont;
   };
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOs/nixos-hardware/master";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-  };
+
 # pkgs = nixpkgs.legacyPackages.${systemSettings.system};
   # lib = nixpkgs.lib.extend (final: prev: {
   #   my = import ./lib {
@@ -52,7 +55,8 @@
     nixosConfigurations = {
       e18m-xps = lib.nixosSystem {
         modules = [
-          <nixos-hardware/dell/xps/13-9310>
+          home-manager.nixosModules.home-manager
+            <nixos-hardware/dell/xps/13-9310>
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix") 
         ];
         specialArgs = {
@@ -62,6 +66,7 @@
       };
       e18m-ws = lib.nixosSystem {
         modules = [
+          home-manager.nixosModules.home-manager
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix") 
         ];
         specialArgs = {
@@ -75,10 +80,12 @@
         inherit pkgs;
         modules = [
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix") 
+            catppuccin.homeManagerModules.catppuccin
         ];
         extraSpecialArgs = {
           inherit userSettings;
           inherit systemSettings;       
+          inherit spicetify-nix;
         };
       };
     };
