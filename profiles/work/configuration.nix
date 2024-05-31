@@ -7,7 +7,6 @@
       ../../modules/nixos/sway.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/spotifyd.nix
-      ../../modules/nixos/thunar.nix
       ../../modules/nixos/obsidian.nix
       ../../modules/nixos/sh.nix
       ../../modules/nixos/1password.nix

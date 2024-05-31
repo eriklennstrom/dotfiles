@@ -15,7 +15,7 @@
     ../../modules/home/git.nix
     #../../modules/home/notifications.nix // Using sway notifications instead, in sway.nix
     ../../modules/home/rofi/default.nix
-    #../../modules/home/theme.nix
+    ../../modules/home/theme.nix
     ../../modules/home/waybar.nix
     ../../modules/home/terminal.nix
     ../../modules/home/spotify.nix
@@ -23,9 +23,7 @@
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
-  gtk.enable = true;
-  catppuccin.flavor = "mocha";
-  catppuccin.enable = true;
+
   ## Copy dotfiles to .config
   home.file.".config" = {
     source = ../../configs;
