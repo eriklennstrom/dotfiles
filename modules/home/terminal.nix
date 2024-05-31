@@ -43,6 +43,8 @@ in
         theme_background = false;
       };
     };
+    
+    ripgrep.enable = true;
 
     kitty = {
       enable = true;
