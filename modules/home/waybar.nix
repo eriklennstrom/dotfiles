@@ -16,7 +16,7 @@
 
     modules-left = [ "sway/workspaces" "sway/mode" ];
     modules-center = [ "custom/spotify" ];
-    modules-right = [ "pulseaudio" "network" "memory" "cpu" "battery" "clock" ];
+    modules-right = [ "custom/vpn" "custom/docker" "pulseaudio" "memory" "cpu" "network" "battery" "clock" ];
 
     media = {
       format = "{icon} {}";
@@ -60,9 +60,29 @@
       escape = true;
     };
 
+    "custom/docker" = {
+      format = "{}";
+      return-type = "json";
+      exec = "~/.config/waybar/modules/docker.sh";
+      exec-if = "~/.config/waybar/modules/docker.sh status";
+      interval = 3600;
+    };
+
+    "custom/vpn" = {
+      format = "{icon} VPN <span color='#aaaaaa'>{}</span>";
+      format-icons = {
+        connected = "";
+        disconnected = "x";
+      };
+      return-type = "json";
+      exec = "~/.config/waybar/modules/vpn.sh";
+      interval = 30;
+    };
+
     "sway/workspaces" = {
       disable-scroll = true;
       format = "{name}";
+      on-click = "activate";
       # format-icons = {
       #   focused = "";
       #   urgent = "";
@@ -77,9 +97,11 @@
       disable-click = false;
     };
 
+    
+
     pulseaudio = {
         format = "{icon}  {volume}%";
-        format-muted = "󰝟";
+        format-muted = "󰖁";
         format-icons = {
             phone = ["󱡒 " " " " "];
             default = ["" "󰖀" "󰕾"];
@@ -119,30 +141,29 @@
         critical = 15;
       };
       format = "{icon}";
-      format-charging = "   {capacity}%";
-      format-plugged = "";
+      format-charging = "󰂄 {capacity}%";
+      format-plugged = "󰂄";
       format-alt = "{icon}  {capacity}%";
-      format-full = " {capacity}%";
-      format-icons = ["" "" ""];
+      format-full = "󰁹";
+      format-icons = ["󰁺" "󰁼" "󰁾" "󰂀"];
     };
   };
   };
 
   programs.waybar.style = ''
-  /*@define-color widgetBG rgb (83,85,113); */
-  @define-color widgetBG transparent;
+  @define-color widgetBG rgb (83,85,113);
+  /*@define-color widgetBG transparent; */
   * {
     border: none;
     border-radius: 0;
     padding: 0;
     margin: 0;
-    font-family: NotoSans Nerd Font Mono;
-    text-shadow: 1px 1px 1px #000000;
+    /* text-shadow: 1px 1px 1px #000000; */
   }
 
   window#waybar {
-    background: rgba(0,0,0, 0.2);
-    /* background: rgba(21,36,51, 0.8); */
+    /* background: rgba(0,0,0, 0.2); */
+    background: rgba(21,36,51, 0.8);
     color: #ffffff;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -154,7 +175,7 @@
     padding-top: 0;
     padding-right: 7px;
     padding-left: 5px;
-    margin: 4px 0 4px 0;
+    margin: 4px 4px 4px 0;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
   }
@@ -176,18 +197,23 @@
   }
 
   #network {
-    padding: 0 8px 0 5px;
     background: @widgetBG;
-    margin: 4px 4px 4px 0;
-    border-radius: 3px;
+    padding-left: 7px;
+    padding-right: 8px;
+    margin: 4px 0 4px 0;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
   }
 
    #battery {
-    padding: 0 10px 0 5px;
     background: @widgetBG;
-    margin: 4px 0 4px 4px;
-    border-radius: 3px;
-     }
+    padding-top: 0;
+    padding-right: 7px;
+    padding-left: 8px;
+    margin: 4px 0 4px 0;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+  }
 
   #clock {
     padding: 0 5px;
@@ -217,7 +243,7 @@
     padding-right: 7px;
     color: #fff;
   }
-  #workspaces button.focuse {
+  #workspaces button.active {
     background: red;
     color: #0077ed;
   }
