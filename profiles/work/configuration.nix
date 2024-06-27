@@ -11,7 +11,7 @@
       ../../modules/nixos/sh.nix
       ../../modules/nixos/1password.nix
       #../../modules/nixos/wireguard.nix
-    ];
+   ];
 # Shell
   # environment.shells = with pkgs; [ zsh ];
   # users.defaultUserShell = pkgs.zsh;
@@ -19,6 +19,7 @@
 # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
  # boot.loader.grub.enable = true;
  # boot.loader.grub.device = "/dev/vda";
  # boot.loader.grub.useOSProber = true;
@@ -31,6 +32,9 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # Enable Fwupd, firmware updater
+  services.fwupd.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -52,6 +56,7 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -111,6 +116,7 @@
   # System packages
   environment.systemPackages = with pkgs; [
     zsh
+    fprintd
     git
     gnumake
     unzip
@@ -131,6 +137,7 @@
     brightnessctl         #brightness controll for laptop screen
     lazydocker
     todoist-electron
+    bibata-cursors
   ];
 
   # programs.light.enable = true;

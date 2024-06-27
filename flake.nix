@@ -13,7 +13,7 @@
 # --- SYSTEM SETTINGS --- #
     systemSettings = {
       system = "x86_64-linux";
-      hostname = "e18m-xps";
+      hostname = "e18m-x1";
       profile = "work";
       timezone = "Europe/Stockholm";
       defaultLocale = "en_US.UTF-8";
@@ -53,10 +53,9 @@
   # inherit (lib._) mapModules mapModulesRec mkHost;
   in {
     nixosConfigurations = {
-      e18m-xps = lib.nixosSystem {
+      e18m-x1 = lib.nixosSystem {
         modules = [
           home-manager.nixosModules.home-manager
-            <nixos-hardware/dell/xps/13-9310>
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix") 
         ];
         specialArgs = {

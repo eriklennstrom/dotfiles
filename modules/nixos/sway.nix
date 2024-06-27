@@ -17,6 +17,9 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    extraSessionCommands = ''
+      export WLR_NO_HARDWARE_CURSORS=1
+    '';
   };
     #xdg.configFile."sway/config".source = ../../configs/sway/config;
   # Configure xwayland

@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
-set $browser chromium
+set $browser chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -32,7 +32,8 @@ layer_effects "waybar" blur enable; shadows enable;
 layer_effects "rofi" blur enable; shadows enable; 
 exec_always ../scripts/clamshell.sh
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /home/e18m/Pictures/wallpapers/GivingBeach_Mac.jpg fill
+output * bg /home/e18m/Pictures/wallpapers/bg.png fill
+output * adaptive_sync on
 #
 for_window [app_id="btopterm"] floating enable
 # Example configuration:
@@ -80,9 +81,9 @@ bindsym $mod+Shift+n exec swaync-client -t -sw
 
 bindgesture swipe:4:right workspace prev
 bindgesture swipe:4:left workspace next 
-input "1739:52710:DLL0945:00_06CB:CDE6_Touchpad" {
+input "11311:40:SNSL0028:00_2C2F:0028_Touchpad" {
       dwt enabled
-      tap enabled
+      #tap enabled
       click_method clickfinger
       natural_scroll enabled
       middle_emulation enabled
