@@ -16,8 +16,8 @@ in
     # in 
     {
       enable = true;
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "mocha";
+      theme = spicePkgs.themes.Dribbblish;
+      colorScheme = "purple";
 
       enabledExtensions = with spicePkgs.extensions; [
         fullAppDisplay

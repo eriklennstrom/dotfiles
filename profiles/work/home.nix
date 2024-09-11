@@ -11,13 +11,16 @@
     ../../modules/home/direnv.nix
     ../../modules/home/flameshot.nix
     ../../modules/home/golang.nix
+    ../../modules/home/eww/eww.nix
     #../../modules/home/fzf.nix
     ../../modules/home/git.nix
     #../../modules/home/notifications.nix // Using sway notifications instead, in sway.nix
     ../../modules/home/rofi/default.nix
+    ../../modules/home/swayosd.nix
     ../../modules/home/theme.nix
     ../../modules/home/waybar.nix
     ../../modules/home/terminal.nix
+    ../../modules/home/tmux.nix
     ../../modules/home/spotify.nix
     #../../user/cli-collection.nix
   ];

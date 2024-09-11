@@ -50,7 +50,7 @@ in
       enable = true;
       shellIntegration.enableZshIntegration = true;
     };
-
+    
     zoxide = {
       enable = true;
       enableZshIntegration = true;

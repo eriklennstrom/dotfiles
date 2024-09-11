@@ -15,7 +15,7 @@
     fg1:    #FFFFFF;
     fg2:    #DEDEDE80;
 
-    background-color:   transparent;
+    background:  #282839FF;
     text-color:         @fg0;
 
     margin:     0;

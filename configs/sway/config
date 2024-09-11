@@ -24,6 +24,8 @@ set $menu rofi -show drun swaymsg exec --
 default_border pixel 2
 client.focused "#64aef8" "#ffffff" "#ffffff" "#ffffff" "#64aef8"
 gaps inner 5
+# OSD server
+exec swayosd-server
 ### Output configuration
 #
 blur enable
@@ -66,7 +68,9 @@ exec swaync
 # Toggle control center
 bindsym $mod+Shift+n exec swaync-client -t -sw
 #
-
+# Print screen flameshot
+bindsym $mod+p exec flameshot gui
+#
 # Window fades
 # Fade in
 # for_window [app_id=.*] opacity 0
@@ -167,9 +171,17 @@ input "11311:40:SNSL0028:00_2C2F:0028_Touchpad" {
 # Lock
       bindsym $mod+Escape exec swaylock --clock --screenshot --effect-blur 7x5 --fade-in 0.2
       # Control volume
-      bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
-      bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
-      bindsym XF86AudioMute  exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
+      # Sink volume raise optionally with --device
+      bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume raise
+      # Sink volume lower optionally with --device
+      bindsym XF86AudioLowerVolume exec  swayosd-client --output-volume lower 
+      # Sink volume toggle mute
+      bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+      # Source volume toggle mute
+      bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+     # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+     # bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+     # bindsym XF86AudioMute  exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
       #XF86AudioMicMute = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
 # Control media
       bindsym XF86AudioPlay exec playerctl play-pause
@@ -177,8 +189,12 @@ input "11311:40:SNSL0028:00_2C2F:0028_Touchpad" {
       bindsym XF86AudioNext exec playerctl next
       bindsym XF86AudioPrev exec playerctl previous
 # Control brightness
-      bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
-      bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+      # Brightness raise
+      bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
+      # Brightness lower
+      bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+     # bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
+     # bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 # Screenshot
 
 #
@@ -218,6 +234,12 @@ input "11311:40:SNSL0028:00_2C2F:0028_Touchpad" {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+#
+# Flameshot
+#
+
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
 #
 # Resizing containers:
 #

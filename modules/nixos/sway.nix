@@ -28,7 +28,7 @@
     xkb = {
       layout = "se";
       variant = "";
-      #options = "caps:escape";
+      options = "ctrl:nocaps";
     };
   };
 }

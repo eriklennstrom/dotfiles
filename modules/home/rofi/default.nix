@@ -9,6 +9,8 @@
       display-drun = "Applications";
       drun-display-format = "{name}";
       cycle = false;
+      show-icons = true;
+      opacity = "0.5";
     };
     #theme = ./spotlight.rasi;
   };
