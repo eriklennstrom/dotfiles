@@ -9,6 +9,7 @@
     height = 20;
     margin-left = 5;
     margin-right = 5;
+    margin-top = 5;
     # spacing = 10;
     #output = [
       #"eDP-1"
@@ -163,10 +164,10 @@
 
   window#waybar {
     /* background: rgba(0,0,0, 0.2); */
-    background: rgba(21,36,51, 0.8);
+    background: rgba(21,36,51, 0.6);
     color: #ffffff;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
+    /* border-bottom-right-radius: 5px; */
     font-size: 12px;
   }
   
