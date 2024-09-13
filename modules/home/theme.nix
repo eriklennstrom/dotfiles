@@ -5,11 +5,11 @@
   };
   gtk = {
     enable = true;
-    cursorTheme = {
-      # package = pkgs.catppuccin-cursors.mochaSapphire;
-      # name = "catppuccin-mocha-mauve-cursors";
-      size = 48;
-    };
+    # cursorTheme = {
+    #   # package = pkgs.catppuccin-cursors.mochaSapphire;
+    #   # name = "catppuccin-mocha-mauve-cursors";
+    #   size = 48;
+    # };
     # catppuccin = {
     #   enable = true;
     #   cursor = {
