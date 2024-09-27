@@ -7,6 +7,7 @@
   
   imports = [
     ../../modules/home/chromium.nix
+    ../../modules/home/firefox.nix
     ../../modules/home/nvim.nix
     ../../modules/home/direnv.nix
     ../../modules/home/flameshot.nix
