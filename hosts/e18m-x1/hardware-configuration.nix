@@ -7,11 +7,21 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
-    services.fstrim.enable = lib.mkDefault true;
+  ### SSD
+  services.fstrim.enable = lib.mkDefault true;
+
   ### GPU
   hardware.graphics = {
     enable = true;
+    # package = pkgs.mesa.drivers;
+    # package32 = pkgs.pkgsi686Linux.mesa.drivers;
+    # driSupport = true;
+    # driSupport32Bit = true;
     extraPackages = with pkgs; [
+      # intel-media-driver
+      # vaapiVdpau
+      # libvdpau-va-gl
+      # intel-compute-runtime
       vpl-gpu-rt
       #onevpl-intel-gpu
       #intel-media-driver
@@ -19,6 +29,12 @@
     ];
     # driSupport = true;
   };
+  hardware.enableRedistributableFirmware = true;
+  hardware.enableAllFirmware = true;
+  hardware.acpilight.enable = true;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
   ### Fingerprint
@@ -39,9 +55,9 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  # boot.kernelModules = [ "kvm-intel" ];
-  # boot.kernelParams = [ "i915.force_probe=<7d55>" ];
-  # boot.extraModulePackages = [ ];
+  boot.kernelParams = [  ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
   #   nixpkgs.config.packageOverrides = pkgs: {
   #   intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   # };

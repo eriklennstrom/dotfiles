@@ -2,16 +2,37 @@
 {
   imports = 
     [
-      ../../hosts/${systemSettings.hostname}/default.nix
-      # ../../hosts/${systemSettings.hostname}/touchpad.nix
+      ../../hosts/${systemSettings.hostname}/hardware-configuration.nix
+      ../../hosts/${systemSettings.hostname}/touchpad.nix
       ../../modules/nixos/sway.nix
+      # ../../modules/nixos/hyprland.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/spotifyd.nix
       ../../modules/nixos/obsidian.nix
       ../../modules/nixos/sh.nix
       ../../modules/nixos/1password.nix
       #../../modules/nixos/wireguard.nix
-   ];
+    ];
+  # services.power-profiles-daemon.enable = false;
+  # powerManagement.enable = true;
+  # services.auto-cpufreq = {
+  #   enable = true;
+  #   settings = {
+  #     battery = {
+  #       governor = "powersave";
+  #       turbo = "never";
+  #     };
+  #     charger = {
+  #       governor = "performance";
+  #       turbo = "auto";
+  #     };
+  #   };
+  # };
+  # boot.extraModprobeConfig = ''
+  #   options hid_apple swap_fn_leftctrl=1
+  #   options hid_apple swap_opt_cmd=1
+  # '';
+  services.syslogd.enable = true;
 # Shell
   # environment.shells = with pkgs; [ zsh ];
   # users.defaultUserShell = pkgs.zsh;
