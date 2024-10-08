@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 class=$(playerctl metadata --player=spotify --format '{{lc(status)}}')
-pause=""
-play=""
+pause=" "
+play=" "
 info=$(playerctl metadata --player=spotify --format '  {{title}} - {{artist}}')
 
 if [[ $class == "playing" ]]; then

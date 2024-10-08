@@ -7,6 +7,7 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
+    services.fstrim.enable = lib.mkDefault true;
   ### GPU
   hardware.graphics = {
     enable = true;

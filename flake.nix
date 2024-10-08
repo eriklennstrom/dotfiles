@@ -6,7 +6,10 @@
     nixos-hardware.url = "github:NixOs/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, nixpkgs, catppuccin, home-manager, spicetify-nix, ... }:
     let
@@ -80,6 +83,7 @@
         modules = [
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix") 
             catppuccin.homeManagerModules.catppuccin
+            spicetify-nix.homeManagerModules.default
         ];
         extraSpecialArgs = {
           inherit userSettings;

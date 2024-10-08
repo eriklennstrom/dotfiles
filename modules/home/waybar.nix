@@ -17,10 +17,10 @@
 
     modules-left = [ "sway/workspaces" "sway/mode" ];
     modules-center = [ "custom/spotify" ];
-    modules-right = [ "custom/vpn" "custom/docker" "pulseaudio" "memory" "cpu" "network" "battery" "clock" ];
+    modules-right = [ "custom/vpn" "custom/docker" "memory" "cpu" "network" "battery" "pulseaudio" "clock" ];
 
     media = {
-      format = "{icon} {}";
+      format = "<span style='margin-right: 5px;'>{icon}</span> {}";
       return-type = "json";
       max-length = 55;
       format-icons = {
@@ -133,7 +133,8 @@
 
     clock = {
       interval = 60;
-      format = " {:%d %b | %H:%M}";
+      format = " {:%a %d %b %H:%M}";
+      timezone = "Europe/Stockholm";
     };
 
     battery = {
@@ -142,8 +143,8 @@
         critical = 15;
       };
       format = "{icon}";
-      format-charging = "󰂄 {capacity}%";
-      format-plugged = "󰂄";
+      format-charging = "󰁹 {capacity}%";
+      format-plugged = "󰁹";
       format-alt = "{icon}  {capacity}%";
       format-full = "󰁹";
       format-icons = ["󰁺" "󰁼" "󰁾" "󰂀"];
@@ -152,7 +153,7 @@
   };
 
   programs.waybar.style = ''
-  @define-color widgetBG rgb (83,85,113);
+  @define-color widgetBG rgb (100,100,154);
   /*@define-color widgetBG transparent; */
   * {
     border: none;
@@ -166,59 +167,58 @@
     /* background: rgba(0,0,0, 0.2); */
     background: rgba(21,36,51, 0.6);
     color: #ffffff;
+    text-shadow: 3px 3px 3px rgba(0,0,0, 0.5);
     border-radius: 5px;
     /* border-bottom-right-radius: 5px; */
     font-size: 12px;
   }
   
   #cpu {
-    background: @widgetBG;
     padding-top: 0;
-    padding-right: 7px;
-    padding-left: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin: 4px 4px 4px 0;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
   }
 
   #memory {
-    background: @widgetBG;
-    padding-left: 7px;
-    padding-right: 5px;
-    margin: 4px 0 4px 0;
+    padding-right: 10px;
+    padding-left: 10px;   margin: 4px 0 4px 0;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
   }
 
   #pulseaudio {
     padding: 0 5px;
-    background: @widgetBG;
     margin: 4px 4px 4px 0;
     border-radius: 3px;
   }
 
   #network {
-    background: @widgetBG;
-    padding-left: 7px;
-    padding-right: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin: 4px 0 4px 0;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
   }
 
    #battery {
-    background: @widgetBG;
     padding-top: 0;
-    padding-right: 7px;
-    padding-left: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin: 4px 0 4px 0;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
   }
+  #battery.plugged {
+    color: #3ce042;
+
+  }
 
   #clock {
-    padding: 0 5px;
-    background: @widgetBG;
+    padding-right: 10px;
+    padding-left: 10px;
     margin: 4px 4px;
     border-radius: 3px;
   }
@@ -230,26 +230,36 @@
     color: transparent;
   }
 
-  #workspaces {
+  #workspaces button {
     background: @widgetBG;
-    border-radius: 3px;
-    margin: 4px 4px;
     color: #fff;
     font-size: 12px;
   }
 
   #workspaces button {
     border: 1px solid transparent;
+    margin-top: 4px;
+    margin-bottom: 4px;
     padding-left: 7px;
     padding-right: 7px;
     color: #fff;
   }
-  #workspaces button.active {
-    background: red;
-    color: #0077ed;
-  }
+  
+  #workspaces button.focused {
+    background-color: #0077ed;
+  } 
+
   #workspaces button:hover {
     border: 1px solid #0077ed;
+  }
+  #workspaces button:first-child {
+    margin-left: 4px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+  #workspaces button:last-child {
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
   }
   #workspaces button:first-child:hover {
     border-bottom-left-radius: 3px;

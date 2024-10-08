@@ -2,8 +2,8 @@
 {
   imports = 
     [
-      ../../hosts/${systemSettings.hostname}/hardware-configuration.nix
-      ../../hosts/${systemSettings.hostname}/touchpad.nix
+      ../../hosts/${systemSettings.hostname}/default.nix
+      # ../../hosts/${systemSettings.hostname}/touchpad.nix
       ../../modules/nixos/sway.nix
       ../../modules/nixos/docker.nix
       ../../modules/nixos/spotifyd.nix
@@ -41,7 +41,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   services.flatpak.enable = true;
-
+  services.mysql.enable = true;
+  services.mysql.package = pkgs.mariadb;
+  services.longview.mysqlPasswordFile = "/run/keys/mysql.password";
   # Configure keymap in X11
   services.xserver = {
     xkb.layout = "se";
@@ -114,7 +116,7 @@
     packages = [];
     uid = 1000;
   };
-
+  
   # System packages
   environment.systemPackages = with pkgs; [
     zsh
@@ -127,6 +129,10 @@
     nodejs_20
     php
     php82Packages.composer
+    phpactor
+    laravel
+    swayosd
+    unetbootin
     gcc
     fzf
     wlay                  #monitor manager gui

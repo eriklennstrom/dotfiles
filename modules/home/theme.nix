@@ -5,11 +5,11 @@
   };
   gtk = {
     enable = true;
-    # cursorTheme = {
-    #   # package = pkgs.catppuccin-cursors.mochaSapphire;
-    #   # name = "catppuccin-mocha-mauve-cursors";
-    #   size = 48;
-    # };
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors.mochaSapphire;
+      name = "catppuccin-mocha-mauve-cursors";
+      size = 48;
+    };
     # catppuccin = {
     #   enable = true;
     #   cursor = {
@@ -19,11 +19,11 @@
     #   };
     # };
   };
-  home.pointerCursor = {
-    # x11.enable = true;
-    gtk.enable = true;
-    package = pkgs.catppuccin-cursors.mochaSapphire;
-    name = "Catppuccin-Mocha-Mauve-Cursors";
-    size = 22;
-  };
+  # home.pointerCursor = {
+  #   # x11.enable = true;
+  #   gtk.enable = true;
+  #   package = pkgs.catppuccin-cursors.mochaSapphire;
+  #   name = "Catppuccin-Mocha-Mauve-Cursors";
+  #   size = 22;
+  # };
 }
