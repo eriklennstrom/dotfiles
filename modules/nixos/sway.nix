@@ -21,14 +21,15 @@
       export WLR_NO_HARDWARE_CURSORS=1
     '';
   };
+
     #xdg.configFile."sway/config".source = ../../configs/sway/config;
   # Configure xwayland
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "se";
-      variant = "";
-      options = "ctrl:nocaps";
-    };
-  };
+  # services.xserver = {
+  #   enable = true;
+  #   xkb = {
+  #     layout = "se";
+  #     variant = "";
+  #     options = "ctrl:nocaps";
+  #   };
+  # };
 }

@@ -19,11 +19,11 @@
     #   };
     # };
   };
-  # home.pointerCursor = {
-  #   # x11.enable = true;
-  #   gtk.enable = true;
-  #   package = pkgs.catppuccin-cursors.mochaSapphire;
-  #   name = "Catppuccin-Mocha-Mauve-Cursors";
-  #   size = 22;
-  # };
+  home.pointerCursor = {
+    # x11.enable = true;
+    gtk.enable = true;
+    package = pkgs.catppuccin-cursors.mochaSapphire;
+    name = "Catppuccin-Mocha-Mauve-Cursors";
+    size = 22;
+  };
 }

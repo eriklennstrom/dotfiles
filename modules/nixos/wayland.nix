@@ -1,13 +1,14 @@
 { pkgs, lib, config, inputs, userSettings, ... }:
 {
   imports = [
-    ./sway.nix
+    # ./sway.nix
     ./fonts.nix
   ];
   config = {
     home-manager.users.${userSettings.username} = 
     { pkgs, ... }:
     {
+      home.stateVersion = "23.11";
       home.sessionVariables = {
         XDG_SESSION_TYPE = "wayland";
         NIXOS_OZONE_WL = "1";
@@ -25,15 +26,13 @@
           package = pkgs.gnome.gnome-themes-extra;
         };
       };
-      systemd.user.sessionVariables = config.home-manager.users.justinas.home.sessionVariables;
+      systemd.user.sessionVariables = config.home-manager.users.${userSettings.username}.home.sessionVariables;
 
 
       home.packages = with pkgs; [
-        qt5.wayland
-          qt6.wayland
-
+        # qt5.wayland
+          # qt6.wayland
           drm_info
-
           oculante
           grim
           slurp
@@ -42,7 +41,7 @@
           wlay
           wev
           wtype
-          inputs.nixpkgs-wayland.outputs.packages.${pkgs.stdenv.hostPlatform.system}.wl-gammarelay-rs
+          # inputs.nixpkgs-wayland.outputs.packages.${pkgs.stdenv.hostPlatform.system}.wl-gammarelay-rs
       ];
     };
     qt = {
