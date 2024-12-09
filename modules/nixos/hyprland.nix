@@ -1,0 +1,16 @@
+{ pkgs, ... }:
+{
+  imports =
+    [ 
+      ./swaynotificationcenter/default.nix
+    ];
+  programs.hyprland.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.systemPackages = with pkgs; [
+    hyprshot
+    hyprpaper
+    hyprlock
+    hyprcursor
+    hyprcursor
+  ];
+}
