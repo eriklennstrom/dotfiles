@@ -19,7 +19,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_11;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.libinput.enable = true;
@@ -36,7 +36,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "e18m-x1"; # Define your hostname.
+  networking.hostName = "e18m-x1c"; # Define your hostname.
   networking.wireless.iwd = {
     enable = true;
   };
@@ -63,9 +63,10 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
+  # services.displayManager.gdm.enable = true;
+  # services.displayManager.gdm.wayland.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.wayland.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
