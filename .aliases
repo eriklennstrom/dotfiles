@@ -1,0 +1,49 @@
+
+
+# Aliases
+alias snvim="sudo -E -s nvim"
+alias vim="nvim"
+alias rcat="/bin/cat"
+alias cat="bat --theme=base16"
+
+# ls to eza
+alias ls='eza --icons --color=always --group-directories-first'
+alias ll='eza -alF --icons --color=always --group-directories-first'
+alias la='eza -a --icons --color=always --group-directories-first'
+alias lt='eza -T --icons --color=always --group-directories-first'
+alias l='eza -F --icons --color=always --group-directories-first'
+alias l.='eza -a | egrep "^\."'
+# misc
+alias clock="tty-clock -s -c -t -C 6"
+alias fetch="fastfetch"
+alias matrix="clear && unimatrix -a -b -c cyan -f -s 98 && clear"
+
+
+alias copy="xclip -selection clipboard"
+alias paste="xclip -o -selection clipboard"
+alias t="tmux"
+
+# PHP
+alias a="php artisan"
+
+# Git
+alias g="git"
+alias gs="git s"
+alias nah="git reset --hard;git clean -df"
+alias co="git checkout"
+alias pull="git pull"
+alias push="git push"
+alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
+alias lg="lazygit"
+
+# Docker
+alias d="docker"
+alias dc="docker compose"
+
+# NPM
+alias serve="npm run serve"
+alias install="npm run install"
+alias testu="npm run test:unit"
+
+#alias ls="eza --color=always --long --git --no-time --no-user -a --no-permissions --no-filesize --icons=always"
+

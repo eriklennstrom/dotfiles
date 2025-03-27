@@ -1,0 +1,7 @@
+[url "ssh://git@github.com/varnish"]
+	insteadOf = https://github.com/varnish
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	email = erik@tedfeltlennstrom.se
+	name = Erik Lennström

@@ -1,97 +1,74 @@
-#--------------------------------------------------------------------------
-# Oh My Zsh
-#--------------------------------------------------------------------------
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH="$PATH:/usr/local/go/bin:/home/e18m/go/bin"
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
-HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="yyyy-mm-dd"
-VI_MODE_SET_CURSOR=true
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
+
+#
 plugins=(
-    npm
-    vi-mode
-    ssh-agent
-    zsh-z
-    zsh-autosuggestions
-    docker
-    docker-compose
-    git
-    tmux
+  autoupdate
+  git
+  archlinux
+  sudo
+  z
+  zsh-autosuggestions
+  zsh-history-substring-search
+  zsh-syntax-highlighting
+  zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh
-# export PATH="$HOME/.tmuxifier/bin:$PATH"
-# eval "$(tmuxifier init -)"
-#--------------------------------------------------------------------------
-# Aliases
-#--------------------------------------------------------------------------
 
-alias vim="nvim"
-alias copy="xclip -selection clipboard"
-alias paste="xclip -o -selection clipboard"
-alias t="tmux"
+# User configuration
 
-# PHP
-alias a="php artisan"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Git
-alias g="git"
-alias gs="git s"
-alias nah="git reset --hard;git clean -df"
-alias co="git checkout"
-alias pull="git pull"
-alias push="git push"
-alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
-alias lg="lazygit"
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# Docker
-alias d="docker"
-alias dc="docker compose"
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
-# NPM
-alias serve="npm run serve"
-alias install="npm run install"
-alias testu="npm run test:unit"
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
 
-alias ls="eza --color=always --long --git --no-time --no-user -a --no-permissions --no-filesize --icons=always"
-
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
 #
-alias ssh="kitty +kitten ssh"
+source $HOME/.aliases
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-eval $(/home/linuxbrew/.linuxbrew/Homebrew/bin/brew shellenv)
-
-if [[ $- == *i* && $0 == '/usr/bin/zsh' ]]; then
-    ~/.config/scripts/login.sh
-fi
-
 export PATH=$PATH:/home/e18m/.spicetify
-export PATH=$PATH:/usr/local/go/bin:/home/e18m/go/bin
-export PATH=$PATH:/home/e18m/.local/bin
-
-# bun completions
-[ -s "/home/e18m/.bun/_bun" ] && source "/home/e18m/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# composer
-export PATH=~/.config/composer/vendor/bin:$PATH
-# Tmuxifier
-export PATH=$HOME/.tmuxifier/bin:$PATH
-eval "$(tmuxifier init -)"
-# pnpm
-export PNPM_HOME="/home/e18m/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
