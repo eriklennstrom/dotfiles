@@ -6,15 +6,16 @@
     // "output": "eDP-1",
     "reload_style_on_change": true,
     "ipc": false,
-    "margin-top": 7,
-    "margin-left": 10,
-    "margin-right": 10,
+    // "margin-top": 7,
+    // "margin-left": 10,
+    // "margin-right": 10,
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["custom/spotify"],
     "modules-right": [
       // "privacy",
       "custom/playerctl",
+      // "custom/wireguard-manager",
       // "tray",
       //"wireplumber",
       "group/group-audio",
@@ -265,7 +266,8 @@
     },
 
     "custom/wl-gammarelay-temperature": {
-      "format": "󰽥 {}",
+      "format": "󰽥 {icon}",
+      "format-icons": ["󰃞","󰃝","󰃟","󰃠"],
       "exec": "wl-gammarelay-rs watch {t}",
       "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4500",
       "on-double-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
@@ -295,12 +297,12 @@
 
     "network": {
       "interval": 1,
-      "format": "󰤮 OFF",
-      "format-wifi": "{icon} ON",
+      "format": "󰤮",
+      "format-wifi": "{icon}",
       "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-      "format-ethernet": "  ON",
-      "format-linked": "󰈁 ON",
-      "format-disconnected": "󰤮 ON",
+      "format-ethernet": " ",
+      "format-linked": "󰈁",
+      "format-disconnected": "󰤮",
       "tooltip-format-wifi": "<span><b><u>{essid}</u></b></span>\t\t\t{ipaddr}\n\t {bandwidthDownBits} |  {bandwidthUpBits}",
       "tooltip-format-ethernet": "<span><b><u>{ifname}</u></b></span>\t\t\t{ipaddr}\n\t {bandwidthDownBits} |  {bandwidthUpBits}",
       "on-click": "$ROFI '$HOME/.config/rofi/scripts/wifi.sh'",
@@ -368,7 +370,18 @@
       "on-click-right": "sleep 0.1 && swaync-client -d -sw",
       "escape": true,
     },
-
+    "custom/wireguard-manager": {
+      "exec": "exec ~/.config/waybar/wireguard-manager/wireguard-manager.sh -s",
+      "format": "{icon}",
+      "format-icons": {
+        "connected": "<span color=\"#50fa7b\">VPN: 🔒</span>",
+        "disconnected": "<span color=\"#ff5555\">VPN: 🔓</span>",
+      },
+      "interval": "once",
+      "on-click": "~/.config/waybar/wireguard-manager/wireguard-manager.sh -t && pkill -SIGRTMIN+1 waybar",
+      "return-type": "json",
+      "signal": 1,
+    },
     // "wireplumber": {
     //   "format": "{icon} {volume}",
     //   "format-bluetooth": "{volume} {icon}",
@@ -388,7 +401,6 @@
     //   "scroll-step": 2
     // },
 
-    "format-icons": ["󰃞","󰃝","󰃟","󰃠"],
 
     // "custom/wl-gammarelay-gamma": {
     //    "format": "{}% γ",

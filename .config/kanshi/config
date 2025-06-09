@@ -1,14 +1,13 @@
-#profile default {
-#	output LVDS-1 disable
-#	output "Some Company ASDF 4242" mode 1600x900 position 0,0
-#}
+profile default {
+	output eDP-1 mode 2880x1800 position 4000,1660 scale 2
+}
 profile home {
-	output "Samsung Electric Company LS27R75 HTHM400319" mode 2560x1440 position 0,806
-	output "Dell Inc. DELL P2720D 1YX4RH3" mode 2560x1440 transform 90 position 2560,0
-	output eDP-1 mode 2880x1800 position 4000,1660
+  output "Samsung Electric Company C34J79x H4ZN100633" mode 3440x1440@99.982Hz position 0,997
+	output "Dell Inc. DELL P2720D 1YX4RH3" mode 2560x1440 transform 90 position 3440,0
+	output eDP-1 mode 2880x1800 position 4880,1241
 }
 profile work {
-	output eDP-1 mode 2880x1800 position 0,724
-	output "Samsung Electric Company C34J79x H4ZN100633" mode 3440x1440@99.982Hz position 1440,314
-	output "DUS D27QPU 0x00000001" mode 2048x1152@60Hz transform 270 position 4880,0
+	output "Dell Inc. DELL P2722HE 9YDDW83" mode 1920x1080@60Hz transform 90 position 0,0
+  output "Samsung Electric Company C34J79x HNTN700179" mode 3440x1440@99.982Hz position 1080,351
+	output eDP-1 mode 2880x1800 position 4520,596 scale 1.5
 }

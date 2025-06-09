@@ -1,7 +1,7 @@
 
 
 # Aliases
-alias snvim="sudo -E -s nvim"
+alias svim="sudo -E -s nvim"
 alias vim="nvim"
 alias rcat="/bin/cat"
 alias cat="bat --theme=base16"
@@ -34,11 +34,12 @@ alias co="git checkout"
 alias pull="git pull"
 alias push="git push"
 alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
-alias lg="lazygit"
+alias gg="lazygit"
 
 # Docker
 alias d="docker"
 alias dc="docker compose"
+alias dd="lazydocker"
 
 # NPM
 alias serve="npm run serve"

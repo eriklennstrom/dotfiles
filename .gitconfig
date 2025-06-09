@@ -5,3 +5,5 @@
 [user]
 	email = erik@tedfeltlennstrom.se
 	name = Erik Lennström
+[init]
+	defaultBranch = main

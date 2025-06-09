@@ -21,10 +21,10 @@
 
 window#waybar {
   /* background: @background; */
-  background:rgba(59,59,59,0.2);
+  background:rgba(59,59,59,0);
   color: @text;
-  border-radius: 6px;
-  border: 1px solid rgba(59,59,59,0.3);
+  /* border-radius: 6px; */
+  /* border-bottom: 1px solid rgba(59,59,59,0.3); */
   /* border: 1px solid alpha(@border, 0.75); */
   transition:
     background-color 0.25s linear,
@@ -193,11 +193,11 @@ window#waybar.swallowing #window {
   padding: 0 10px;
   margin: 0 4px;
   /* border: 1px solid @border; */
-  text-shadow:
-    -1px -1px 2px rgba(0,0,0,0.1),
-    1px -1px 2px rgba(0,0,0,0.1),
-    -1px 1px 2px rgba(0,0,0,0.1),
-    1px 1px 2px rgba(0,0,0,0.5);
+  /* text-shadow: */
+  /*   -1px -1px 2px rgba(0,0,0,0.1), */
+  /*   1px -1px 2px rgba(0,0,0,0.1), */
+  /*   -1px 1px 2px rgba(0,0,0,0.1), */
+  /*   1px 1px 2px rgba(0,0,0,0.5); */
   transition: all 0.25s linear;
 }
 
