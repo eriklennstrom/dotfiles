@@ -13,7 +13,7 @@ window {
   location:                    center;
   anchor:                      center;
   fullscreen:                  false;
-  width:                       425px;
+  width:                       600px;
   border:                      1px;
   border-color:                @border;
   /* properties for all widgets */
@@ -116,7 +116,7 @@ listview {
   scrollbar:                   false;
   layout:                      vertical;
   reverse:                     false;
-  fixed-height:                false;
+  fixed-height:                true;
   fixed-columns:               false;
   spacing:                     10px;
   background-color:            transparent;

@@ -14,7 +14,7 @@
     "modules-center": ["custom/spotify"],
     "modules-right": [
       // "privacy",
-      "custom/playerctl",
+      
       // "custom/wireguard-manager",
       // "tray",
       //"wireplumber",
@@ -23,7 +23,7 @@
       "group/group-connection",
       "group/group-vitals",
       "custom/notification",
-      "clock",
+      "clock"
     ],
 
     //====================MODULES_LEFT====================
@@ -32,7 +32,7 @@
       "format": "󰣇",
       "on-click": "$ROFI 'rofi -show-icons -theme-str \"window {location: north west; x-offset: 4; y-offset: 2;} listview {columns: 2;}\" -show drun -modi run,drun,filebrowser'",
       "on-click-right": "$ROFI '$HOME/.config/rofi/scripts/power-menu waybar'",
-      "tooltip": false,
+      "tooltip": false
     },
 
     // "hyprland/workspaces": {
@@ -112,15 +112,15 @@
           "months": "<span><b><u>{}</u></b></span>",
           "days": "<span><small>{}</small></span>",
           "weekdays": "<span><b><u>{}</u></b></span>",
-          "today": "<span foreground='#00CCCC'><big><b><u>{}</u></b></big></span>",
-        },
+          "today": "<span foreground='#00CCCC'><big><b><u>{}</u></b></big></span>"
+        }
       },
       "actions": {
         "on-click": "mode",
         "on-click-right": "shift_reset",
         "on-scroll-up": "shift_up",
-        "on-scroll-down": "shift_down",
-      },
+        "on-scroll-down": "shift_down"
+      }
     },
 
     //====================MODULES_RIGHT====================
@@ -132,17 +132,17 @@
       "modules": [
         {
           "type": "screenshare",
-          "tooltip-icon-size": 12,
+          "tooltip-icon-size": 12
         },
         {
           "type": "audio-in",
-          "tooltip-icon-size": 12,
+          "tooltip-icon-size": 12
         },
         {
           "type": "audio-out",
-          "tooltip-icon-size": 12,
-        },
-      ],
+          "tooltip-icon-size": 12
+        }
+      ]
     },
 
     "custom/spotify":{
@@ -158,47 +158,48 @@
       "return-type": "json",
       "max-length": 18,
       // "exec": "playerctl -i firefox -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"tooltip\": \"{{artist}} - {{markup_escape(title)}}\", \"class\": \"{{status}}\"}' -F",
+      "exec-if": "pgrep spotify",
       "exec": "~/.config/waybar/scripts/playerctl_scroll.sh",
       "on-click": "playerctl -i firefox previous",
       "on-click-right": "playerctl -i firefox next",
       "on-click-middle": "playerctl -i firefox play-pause",
       "on-scroll-up": "playerctl -i firefox volume 0.05+",
-      "on-scroll-down": "playerctl -i firefox volume 0.05-",
+      "on-scroll-down": "playerctl -i firefox volume 0.05-"
     },
 
     "tray": {
       "icon-size": 15,
-      "spacing": 10,
+      "spacing": 10
     },
 
     "group/group-audio": {
       "orientation": "horizontal",
       "drawer": {
         "transition-duration": 500,
-        "transition-left-to-right": false,
+        "transition-left-to-right": false
       },
-      "modules": ["pulseaudio#output", "pulseaudio#input"],
+      "modules": ["pulseaudio#output", "pulseaudio#input"]
     },
 
     "pulseaudio#output": {
-      "format": "{icon} {volume}",
-      "format-bluetooth": "{icon} {volume}",
+      "format": "{icon}   {volume}",
+      "format-bluetooth": "{icon} {volume}",
       "format-bluetooth-muted": " {icon}",
-      "format-muted": " {volume}",
+      "format-muted": "  {volume}",
       "format-icons": {
-        "headphone": "",
+        "headphone": "󱡏 ",
         "hands-free": "󱡏",
         "headset": "",
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["", "", ""],
+        "default": ["", "", ""]
       },
       "on-click": "swayosd-client --output-volume mute-toggle --max-volume 200 || wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
       "on-click-right": "$ROFI 'rofi -theme-str \"configuration {show-icons: false;} window {location: north east; x-offset: -307; y-offset: 2; width: 250px;} listview {columns: 1;} element-text {vertical-align: 0.50; horizontal-align: 0.50;} inputbar {enabled: false;}\" -modes out:$HOME/.config/rofi/scripts/sound-output-port.sh,in:$HOME/.config/rofi/scripts/sound-input-port.sh -show out'",
       "on-scroll-up": "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 | (swayosd-client --output-volume +1 --max-volume 200 || wpctl set-volume -l '1.5' @DEFAULT_AUDIO_SINK@ 1%+)",
       "on-scroll-down": "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 | (swayosd-client --output-volume -1 --max-volume 200 || wpctl set-volume -l '1.5' @DEFAULT_AUDIO_SINK@ 1%-)",
-      "max-volume": 200,
+      "max-volume": 200
     },
 
     "pulseaudio#input": {
@@ -215,15 +216,15 @@
       "orientation": "horizontal",
       "drawer": {
         "transition-duration": 500,
-        "transition-left-to-right": false,
+        "transition-left-to-right": false
       },
       "modules": [
         "battery",
         "idle_inhibitor",
         "custom/wl-gammarelay-temperature",
         "custom/wl-gammarelay-brightness",
-        "backlight",
-      ],
+        "backlight"
+      ]
     },
 
     "battery": {
@@ -231,7 +232,7 @@
       "states": {
         "good": 95,
         "warning": 30,
-        "critical": 20,
+        "critical": 20
       },
       "format": "{icon} {capacity}",
       "format-alt": "{icon} {capacity}",
@@ -241,14 +242,14 @@
       "format-discharging": "{icon} {capacity}",
       "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
       "on-click": "sleep 0.1 && power-options-gtk",
-      "tooltip-format": "{timeTo}\nHealth: {health}%\nPower: {power}",
+      "tooltip-format": "{timeTo}\nHealth: {health}%\nPower: {power}"
     },
 
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
         "activated": "󰈈",
-        "deactivated": "󰈉",
+        "deactivated": "󰈉"
       },
       "tooltip": false,
       "on-click": "notify-send -e -h string:x-canonical-private-synchronous:idle_inhibited 'Idle_Inhibition Changed!'",
@@ -273,7 +274,7 @@
       "on-double-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500",
       "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
       "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
-      "tooltip-format": "Temperature",
+      "tooltip-format": "Temperature"
     },
 
     "custom/wl-gammarelay-brightness": {
@@ -283,16 +284,16 @@
       "on-double-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1",
       "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.01",
       "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.01",
-      "tooltip-format": "Brightness",
+      "tooltip-format": "Brightness"
     },
 
     "group/group-connection": {
       "orientation": "horizontal",
       "drawer": {
         "transition-duration": 500,
-        "transition-left-to-right": false,
+        "transition-left-to-right": false
       },
-      "modules": ["network", "bluetooth"],
+      "modules": ["network", "bluetooth"]
     },
 
     "network": {
@@ -306,7 +307,7 @@
       "tooltip-format-wifi": "<span><b><u>{essid}</u></b></span>\t\t\t{ipaddr}\n\t {bandwidthDownBits} |  {bandwidthUpBits}",
       "tooltip-format-ethernet": "<span><b><u>{ifname}</u></b></span>\t\t\t{ipaddr}\n\t {bandwidthDownBits} |  {bandwidthUpBits}",
       "on-click": "$ROFI '$HOME/.config/rofi/scripts/wifi.sh'",
-      "on-click-right": "sleep 0.1 && nm-connection-editor",
+      "on-click-right": "sleep 0.1 && nm-connection-editor"
     },
 
     "bluetooth": {
@@ -322,23 +323,23 @@
       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
       "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
       "on-click": "$ROFI '$HOME/.config/rofi/scripts/bluetooth'",
-      "on-click-right": "sleep 0.1 && blueman-manager",
+      "on-click-right": "sleep 0.1 && blueman-manager"
     },
 
     "group/group-vitals": {
       "orientation": "horizontal",
       "drawer": {
         "transition-duration": 500,
-        "transition-left-to-right": false,
+        "transition-left-to-right": false
       },
-      "modules": ["memory", "cpu"],
+      "modules": ["memory", "cpu"]
     },
 
     "cpu": {
       "interval": 2,
       "format": " {}%",
       "max-length": 10,
-      "on-click": "sleep 0.1",
+      "on-click": "sleep 0.1"
     },
 
     "memory": {
@@ -347,12 +348,12 @@
       "max-length": 10,
       "tooltip-format": "Swap: {swapUsed:0.1f}GiB",
       "on-click": "sleep 0.1 && missioncenter",
-      "on-click-right": "sleep 0.1 && resources",
+      "on-click-right": "sleep 0.1 && resources"
     },
 
     "custom/notification": {
       "tooltip": false,
-      "format": "{icon}<span><sup>{0}</sup></span>",
+      "format": "{icon}<span> <sup>{0}</sup></span>",
       "format-icons": {
         "notification": "",
         "none": "",
@@ -361,27 +362,27 @@
         "inhibited-notification": "",
         "inhibited-none": "",
         "dnd-inhibited-notification": "",
-        "dnd-inhibited-none": "",
+        "dnd-inhibited-none": ""
       },
       "return-type": "json",
       "exec-if": "which swaync-client",
       "exec": "swaync-client -swb",
       "on-click": "sleep 0.1 && swaync-client -t",
       "on-click-right": "sleep 0.1 && swaync-client -d -sw",
-      "escape": true,
+      "escape": true
     },
     "custom/wireguard-manager": {
       "exec": "exec ~/.config/waybar/wireguard-manager/wireguard-manager.sh -s",
       "format": "{icon}",
       "format-icons": {
         "connected": "<span color=\"#50fa7b\">VPN: 🔒</span>",
-        "disconnected": "<span color=\"#ff5555\">VPN: 🔓</span>",
+        "disconnected": "<span color=\"#ff5555\">VPN: 🔓</span>"
       },
       "interval": "once",
       "on-click": "~/.config/waybar/wireguard-manager/wireguard-manager.sh -t && pkill -SIGRTMIN+1 waybar",
       "return-type": "json",
-      "signal": 1,
-    },
+      "signal": 1
+    }
     // "wireplumber": {
     //   "format": "{icon} {volume}",
     //   "format-bluetooth": "{volume} {icon}",

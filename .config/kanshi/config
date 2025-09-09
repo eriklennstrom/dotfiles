@@ -1,10 +1,10 @@
 profile default {
-	output eDP-1 mode 2880x1800 position 4000,1660 scale 2
+	output eDP-1 mode 2880x1800 position 4000,1660 scale 1.5
 }
 profile home {
-  output "Samsung Electric Company C34J79x H4ZN100633" mode 3440x1440@99.982Hz position 0,997
-	output "Dell Inc. DELL P2720D 1YX4RH3" mode 2560x1440 transform 90 position 3440,0
-	output eDP-1 mode 2880x1800 position 4880,1241
+	output "Samsung Electric Company LS27R75 HTHM400319" mode 2560x1440@143.998Hz transform 90 position 0,0
+  output "Samsung Electric Company C34J79x H4ZN100633" mode 3440x1440@99.982Hz position 1440,818
+	output eDP-1 mode 2880x1800 position 4880,1535
 }
 profile work {
 	output "Dell Inc. DELL P2722HE 9YDDW83" mode 1920x1080@60Hz transform 90 position 0,0

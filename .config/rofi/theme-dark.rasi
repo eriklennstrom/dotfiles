@@ -5,8 +5,9 @@
   selected:                    #E0E0E0;
   active:                      #0F0F0F;
   urgent:                      #CCCCCC;
-  border:                      #2B2B2B;
-  background-alpha:            rgba(15, 15, 15, 0.5);
+  // border:                      #2B2B2B;
+  border:                      rgba(15, 15, 15, 0.4);
+  background-alpha:            rgba(15, 15, 15, 0.2);
 }
 
 configuration {

@@ -41,10 +41,11 @@ alias d="docker"
 alias dc="docker compose"
 alias dd="lazydocker"
 
-# NPM
-alias serve="npm run serve"
-alias install="npm run install"
-alias testu="npm run test:unit"
+# pnpm
+alias pn="pnpm"
+alias serve="pnpm run serve"
+alias install="pnpm install"
+alias testu="pnpm run test:unit"
 
 #alias ls="eza --color=always --long --git --no-time --no-user -a --no-permissions --no-filesize --icons=always"
 

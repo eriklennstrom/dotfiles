@@ -10,7 +10,7 @@
 
 * {
   all: unset;
-  font-family: "MesloLGS NF", "Fira Sans Nerd Font";
+  font-family: "Inter", "SF Pro Text", sans-serif;
   font-weight: normal;
   font-size: 12px;
   min-height: 0px;
@@ -53,9 +53,10 @@ window#waybar:not(.eDP-1) #taskbar button {
 }
 #workspaces button {
   /* background: @widgetBG; */
+  background: rgba(255,255,255,0.2);
   color: #fff;
   font-size: 12px;
-  border: 1px solid rgba(59,59,59,0.5);
+  border: 1px solid transparent;
   margin-top: 4px;
   margin-bottom: 4px;
   padding-top:4px;
@@ -78,7 +79,7 @@ window#waybar:not(.eDP-1) #taskbar button {
   color: #fff;
 }
 #workspaces button:hover {
-  border: 1px solid #0077ed;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 #workspaces button:first-child {
   margin-left: 4px;
@@ -189,9 +190,11 @@ window#waybar.swallowing #window {
 
 .module {
   /* background: @background-alpha 0 0 / 750% 750%; */
-  color: rgba(255,255,255,0.7);
+  /* color: @accent-fg; */
+  color: rgba(255,255,255,0.9);
   padding: 0 10px;
   margin: 0 4px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.18);
   /* border: 1px solid @border; */
   /* text-shadow: */
   /*   -1px -1px 2px rgba(0,0,0,0.1), */
@@ -204,8 +207,10 @@ window#waybar.swallowing #window {
 .module:hover:not(#workspaces):not(#taskbar):not(#tray) {
   /* background: @accent-bg 0 0 / 750% 750%; */
   color: @accent-fg;
-  border: 1px solid @background;
-  text-shadow: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  /* border: 1px solid @background; */
+  /* text-shadow: 0 1px 2px rgba(0,0,0,0.18); */
+  /* text-shadow: none; */
 }
 
 #privacy {
