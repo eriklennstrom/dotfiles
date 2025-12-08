@@ -11,9 +11,9 @@
 #
 background-opacity = 0.7
 background-blur = 40
-theme = catppuccin-frappe
+theme = Catppuccin Mocha
 # theme = Desert
-confirm-close-surface = true 
+confirm-close-surface = false 
 adjust-cell-height = 5
 
 # Run `ghostty +show-config --default --docs` to view a list of
@@ -28,6 +28,11 @@ adjust-cell-height = 5
 # # separated by equals signs.
 # font-family = Iosevka
 # window-padding-x = 2
+window-padding-x = 10
+window-padding-y = 10
+
+mouse-scroll-multiplier = 0.25
+
 #
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:

@@ -20,6 +20,38 @@ return {
     },
   },
   {
+    "eriklennstrom/i18n_goto.nvim",
+    ft = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    opts = {
+      scan_dirs = { "src/translations" },
+      scan_glob = "**/*.json",
+    },
+    config = function(_, opts)
+      require("i18n_goto").setup(opts)
+    end,
+    keys = {
+      { "<leader>ig", function() require("i18n_goto").goto_definition() end, desc = "i18n: go to/create key" },
+      { "<leader>ip", function() require("i18n_goto").peek_translation() end,  desc = "i18n: peek translation" },
+      { "<leader>ic", function() require("i18n_goto").create_missing_translation() end, desc = "i18n: create missing" },
+    },
+  },
+  {
+    "eriklennstrom/i18n_goto.nvim",
+    ft = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    opts = {
+      scan_dirs = { "src/translations" },
+      scan_glob = "**/*.json",
+    },
+    config = function(_, opts)
+      require("i18n_goto").setup(opts)
+    end,
+    keys = {
+      { "<leader>ig", function() require("i18n_goto").goto_definition() end, desc = "i18n: go to/create key" },
+      { "<leader>ip", function() require("i18n_goto").peek_translation() end,  desc = "i18n: peek translation" },
+      { "<leader>ic", function() require("i18n_goto").create_missing_translation() end, desc = "i18n: create missing" },
+    },
+  },
+  {
     "sphamba/smear-cursor.nvim",
     event = "VeryLazy",
     cond = vim.g.neovide == nil,
@@ -87,7 +119,7 @@ return {
         eslint = function()
           -- automatically fix linting errors on save (but otherwise do not format the document)
           vim.cmd([[
-          autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+          autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js LspEslintFixAll
           ]])
         end,
         -- require("lazyvim.util").lsp.on_attach(function(client)
