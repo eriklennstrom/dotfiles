@@ -1,3 +1,6 @@
+# Quickshell terminal colors (before instant prompt to avoid flash)
+[[ -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt ]] && cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -78,8 +81,7 @@ export PATH="$HOME/.phpenv/bin:$PATH"
 # bun completions
 [ -s "/home/e18m/.bun/_bun" ] && source "/home/e18m/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export OZONE_PLATFORM=wayland
-export ELECTRON_ENABLE_WAYLAND=1
+export VARNISH_PACKAGE_TOKEN=$(secret-tool lookup service varnish name package_token)
+
+# opencode
+export PATH=/home/e18m/.opencode/bin:$PATH
