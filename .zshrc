@@ -85,3 +85,4 @@ export VARNISH_PACKAGE_TOKEN=$(secret-tool lookup service varnish name package_t
 
 # opencode
 export PATH=/home/e18m/.opencode/bin:$PATH
+

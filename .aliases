@@ -21,7 +21,12 @@ alias matrix="clear && unimatrix -a -b -c cyan -f -s 98 && clear"
 
 alias copy="xclip -selection clipboard"
 alias paste="xclip -o -selection clipboard"
-alias t="tmux"
+# Zellij
+alias t="source ~/.config/zellij/workspaces.sh"
+alias ta="zellij attach"
+alias tl="zellij list-sessions"
+alias tk="zellij kill-session"
+alias zw="source ~/.config/zellij/workspaces.sh"
 
 # PHP
 alias a="php artisan"
