@@ -30,9 +30,13 @@ Singleton {
 
     function refresh() {
         root.loading = true;
-        root._pendingSources = 2;
+        root._pendingSources = 1;
         googleProcess.running = true;
-        icloudProcess.running = true;
+        // Only run iCloud if the script exists
+        if (FileUtils.exists(Directories.scriptPath + "/calendar/icloud_events.py")) {
+            root._pendingSources = 2;
+            icloudProcess.running = true;
+        }
     }
 
     // Convert 12h "1:30pm" or 24h "13:30" to "HH:MM" for comparison
